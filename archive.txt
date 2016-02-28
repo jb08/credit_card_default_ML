@@ -1,0 +1,3 @@
+#incomplete
+
+names = ["credit_given", "gender", "education", "marital_status", "age", "status_sept-05","status_aug-05", "status_jul-05", "status_jun-05","status_may-05","status_apr-05","bill_sept-05","bill_aug-05", "bill_jul-05", "bill_jun-05","bill_may-05","bill_apr-05","X18","X19", "X20","X21","X22", "Y"]
