@@ -6,6 +6,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
+
 # build KNeighborsClassifier
 def build_KNN_classifier(data_sets, labels):
     classifier = KNeighborsClassifier()
@@ -55,6 +56,7 @@ def predict_test_data(data_sets, classifier):
 
 # measure the performace between predicted and actual
 def preformance_measure(predicted, actual):
-    preformance = 
-    return preformance
+    print "performance_measure()"
+    #preformance = 
+    #return preformance
 
