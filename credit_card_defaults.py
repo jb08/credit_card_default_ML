@@ -2,7 +2,7 @@ import pandas as pd
 import sys
 import numpy as np
 from pandas import DataFrame
-from classifier import build_KNN_classifier, performance_measure
+from classifier import build_KNN_classifier, error_measure
 from classifier import predict_test_data
 def csv_reader():
 	file_name = "default of credit card clients.csv"
@@ -15,16 +15,9 @@ def main():
 	labels = np.ravel(labels)
 	#print labels
 	# print data_sets
-
-	#print data_sets.shape
-	#print labels.shape
-	#print data_sets.head(5)
-	#print "------"
-	#print labels.head(5)
-
 	classifer = build_KNN_classifier(data_sets, labels)
 	predicted = predict_test_data(data_sets, classifer)
-	error_rate = performance_measure(predicted, labels)
+	error_rate = error_measure(predicted, labels)
 	print error_rate
 
 if __name__ == "__main__":
