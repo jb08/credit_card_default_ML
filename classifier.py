@@ -1,4 +1,5 @@
 import sklearn
+import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neural_network import BernoulliRBM
 from sklearn.tree import DecisionTreeClassifier
@@ -55,8 +56,7 @@ def predict_test_data(data_sets, classifier):
 
 
 # measure the performace between predicted and actual
-def preformance_measure(predicted, actual):
-    print "performance_measure()"
-    #preformance = 
-    #return preformance
-
+def performance_measure(predicted, actual):
+    #print "performance_measure()"
+    return np.count_nonzero(abs(predicted - actual))/float(len(predicted))
+    
