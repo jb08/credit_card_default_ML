@@ -55,8 +55,7 @@ def predict_test_data(data_sets, classifier):
     return classifier.predict(data_sets)
 
 
-# measure the performace between predicted and actual
-def performance_measure(predicted, actual):
-    #print "performance_measure()"
+# measure the error between predicted and actual
+def error_measure(predicted, actual):
     return np.count_nonzero(abs(predicted - actual))/float(len(predicted))
     
