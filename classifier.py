@@ -1,12 +1,11 @@
 import sklearn
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
-from sklearn.neural_network import BernoulliRBM
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-
+from sklearn.neural_network import MLPClassifier
 
 # build KNeighborsClassifier
 def build_KNN_classifier(data_sets, labels):
@@ -17,21 +16,21 @@ def build_KNN_classifier(data_sets, labels):
 
 # build LogisticRegression Classifier
 def build_LR_classifier(data_sets, labels):
-    classifier = linear_model.LogisticRegression()
+    classifier = LogisticRegression()
     classifier.fit(data_sets, labels)
     return classifier
 
 
 # build LinearDiscriminantAnalysis 
 def build_DA_classifier(data_sets, labels):
-    classifier = discriminant_analysis.LinearDiscriminantAnalysis()
+    classifier = LinearDiscriminantAnalysis()
     classifier.fit(data_sets, labels)
     return classifier
 
 
 # build Neural Network Classifier
 def build_NN_classifier(data_sets, labels):
-    classifier = BernoulliRBM()
+    classifier = MLPClassifier()
     classifier.fit(data_sets, labels)
     return classifier
 
