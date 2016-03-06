@@ -5,7 +5,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-from sklearn.neural_network import MLPClassifier
+#from sklearn.neural_network import MLPClassifier
 
 # build KNeighborsClassifier
 def build_KNN_classifier(data_sets, labels):
@@ -29,10 +29,10 @@ def build_DA_classifier(data_sets, labels):
 
 
 # build Neural Network Classifier
-def build_NN_classifier(data_sets, labels):
-    classifier = MLPClassifier()
-    classifier.fit(data_sets, labels)
-    return classifier
+# def build_NN_classifier(data_sets, labels):
+#     classifier = MLPClassifier()
+#     classifier.fit(data_sets, labels)
+#     return classifier
 
 
 # build Decision Tree Classifier
@@ -46,6 +46,7 @@ def build_DT_classifier(data_sets, labels):
 def build_NB_classifier(data_sets, labels):
     classifier = GaussianNB()
     classifier.fit(data_sets, labels)
+    print "GaussianNB prior probabilities: " + str(classifier.class_prior_)
     return classifier
 
 
