@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 import random
 import ROC
 
+# author: Jason + Ben
+
 def csv_reader():
     file_name = "default of credit card clients.csv"
     data_sets = pd.read_csv(file_name, index_col = 0, header = 0, skiprows = [1], usecols= range(24))
