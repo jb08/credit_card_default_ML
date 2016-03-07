@@ -13,7 +13,10 @@ def run_analysis(data_sets, labels):
 	print "ROC::run_analysis()"
 	#print_data(data_sets, labels)	
 
-	#pre-process data
+	#pre-process data, incl. feature selection
+	data_sets = feature_selection(data_sets)
+	#print data_sets.head(10)
+
 	labels = np.ravel(labels)
 
 	#KNN
@@ -41,7 +44,7 @@ def run_analysis(data_sets, labels):
 	NB_predicted = predict_test_data(data_sets, NB_classifier)
 	NB_probas = NB_classifier.predict_proba(data_sets)
 
-	print_error_rates = False
+	print_error_rates = True
 	if(print_error_rates):
 		print_error_rate("KNN", KNN_predicted, labels)
 		print_error_rate("LR", LR_predicted, labels)
@@ -52,6 +55,15 @@ def run_analysis(data_sets, labels):
 	#ROC analysis
 	build_roc_curve(labels, knn_probas, LR_probas, DA_probas, DT_probas, NB_probas)
 
+
+def feature_selection(data_sets):
+	print "ROC::feature_selection()"
+	data_sets["percent_max_Sept"] = (data_sets["X12"] / data_sets["X1"]) * 100
+	data_sets["percent_max_Aug"] = (data_sets["X13"] / data_sets["X1"]) * 100
+	pd.set_option('display.max_columns', None)
+
+	return data_sets
+	#print data_sets.head(10)
 
 def cardinality(labels):
 	yes = 0
