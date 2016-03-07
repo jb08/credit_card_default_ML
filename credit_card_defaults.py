@@ -18,17 +18,18 @@ def csv_reader():
     file_name = "default of credit card clients.csv"
     data_sets = pd.read_csv(file_name, index_col = 0, header = 0, skiprows = [1], usecols= range(24))
     labels = pd.read_csv(file_name, index_col = 0, header = 0, skiprows = [1], usecols= [0,24])
-
-    #data_sets = data_sets.as_matrix()
-
     return data_sets, labels
-    # data_sets = data_sets.as_matrix() # how to convert to ndarray
-
 
 def main():
+    print "main()"
+
+    #ROC
     data_sets, labels = csv_reader()
+    ROC.run_analysis(data_sets, labels)
+    return 
+
+    #PCA and 10-fold validation
     data, labels2 = csv_reader()
-    
     data["Y"] = labels2
     data = data.as_matrix()
 
@@ -44,15 +45,6 @@ def main():
     # data_sets, labels = csv_reader()
     # labels = np.ravel(labels)
 
-
-    # KNN_classifer = build_KNN_classifier(data_sets, labels)
-    # KNN_predicted = predict_test_data(data_sets, KNN_classifer)
-    # ROC.calc_confusion_matrix("KNN", KNN_predicted, labels)
-
-    # data_sets = data_sets.as_matrix()
-    # knn_probas = KNN_classifer.predict_proba(data_sets)
-    
-    # ROC.build_roc_curve(labels, knn_probas)
     folds = 10
 
     # for pca_n in range(1, 23):

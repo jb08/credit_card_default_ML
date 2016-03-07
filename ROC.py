@@ -9,6 +9,21 @@ from sklearn.metrics import confusion_matrix, roc_curve, auc
 import matplotlib.pyplot as plt
 import random
 
+def run_analysis(data_sets, labels):
+	print "ROC::run_analysis()"
+	#print_data(data_sets, labels)	
+
+	#pre-process data
+	labels = np.ravel(labels)
+
+	KNN_classifer = build_KNN_classifier(data_sets, labels)
+	KNN_predicted = predict_test_data(data_sets, KNN_classifer)
+	#calc_confusion_matrix("KNN", KNN_predicted, labels)
+
+	knn_probas = KNN_classifer.predict_proba(data_sets)
+	build_roc_curve(labels, knn_probas)
+
+
 def cardinality(labels):
 	yes = 0
 	no = 0
@@ -35,7 +50,7 @@ def build_roc_curve(labels, knn_probas):
 	plt.plot(knn_fpr, knn_tpr, label='KNN classifier')
 	
 	label=('KNN AUC = %0.2f'% roc_auc)
-	#print label
+	print label
 
 	plt.legend(loc='upper right')
 	plt.xlabel('False Positive Rate')
@@ -53,3 +68,8 @@ def calc_confusion_matrix(model, predicted, labels):
 	print model + " confusion_matrix: "
 	print cm
 	print "---"
+
+def print_data(data_sets, labels):
+	pd.set_option('display.max_columns', None)
+	data_sets["Y"] = labels
+	print data_sets.tail(5)
