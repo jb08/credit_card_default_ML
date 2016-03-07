@@ -1,6 +1,6 @@
 import sklearn
 import numpy as np
-from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import BernoulliNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
@@ -42,11 +42,11 @@ def build_DT_classifier(data_sets, labels):
     return classifier
 
 
-# build Gaussian Naive Bayes Classifier
+# build Bernoulli Naive Bayes Classifier
 def build_NB_classifier(data_sets, labels):
-    classifier = GaussianNB()
+    classifier = BernoulliNB()
     classifier.fit(data_sets, labels)
-    print "GaussianNB prior probabilities: " + str(classifier.class_prior_)
+    # print "BernoulliNB prior probabilities: " + str(classifier.class_prior_)
     return classifier
 
 
@@ -55,7 +55,11 @@ def predict_test_data(data_sets, classifier):
     return classifier.predict(data_sets)
 
 
+
 # measure the error between predicted and actual
 def error_measure(predicted, actual):
-    return np.count_nonzero(abs(predicted - actual))/float(len(predicted))
+    count = 0.0
+    for i in range(len(predicted)):
+        count += float(abs(predicted[i] - actual[i]))
+    return count/float(len(predicted))
     
