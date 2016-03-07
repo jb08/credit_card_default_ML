@@ -8,16 +8,30 @@ from classifier import *
 from sklearn.metrics import confusion_matrix, roc_curve, auc
 import matplotlib.pyplot as plt
 import random
+from sklearn import tree
 
 def run_analysis(data_sets, labels):
 	print "ROC::run_analysis()"
 	#print_data(data_sets, labels)	
 
-	#pre-process data, incl. feature selection
-	data_sets = feature_selection(data_sets)
-	#print data_sets.head(10)
-
+	pre_process = False
 	labels = np.ravel(labels)
+	if(pre_process):
+		#pre-process data, incl. feature selection
+		feature_names = ['LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'PAY_0', 'PAY_2', 'PAY_3', 'PAY_4', 'PAY_5', 'PAY_6', 'BILL_AMT1', 'BILL_AMT2', 'BILL_AMT3', 'BILL_AMT4', 'BILL_AMT5', 'BILL_AMT6', 'PAY_AMT1', 'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6', 'RATIO_1', 'RATIO_2']
+		data_sets = feature_selection(data_sets)
+	else:
+		feature_names = feature_names = ['LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'PAY_0', 'PAY_2', 'PAY_3', 'PAY_4', 'PAY_5', 'PAY_6', 'BILL_AMT1', 'BILL_AMT2', 'BILL_AMT3', 'BILL_AMT4', 'BILL_AMT5', 'BILL_AMT6', 'PAY_AMT1', 'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6']
+
+	#DT
+	DT_classifier = build_DT_classifier(data_sets, labels)
+	DT_predicted = predict_test_data(data_sets, DT_classifier)
+	DT_probas = DT_classifier.predict_proba(data_sets)
+	
+	print_tree = False
+	if(print_tree):
+		#feature_names = list(data_sets.columns.values)	
+		tree.export_graphviz(DT_classifier, class_names = ["No Default", "Yes Default"], feature_names = feature_names, max_depth = 3, out_file='tree.dot')
 
 	#KNN
 	KNN_classifier = build_KNN_classifier(data_sets, labels)
@@ -34,17 +48,12 @@ def run_analysis(data_sets, labels):
 	DA_predicted = predict_test_data(data_sets, DA_classifier)
 	DA_probas = DA_classifier.predict_proba(data_sets)
 
-	#DT
-	DT_classifier = build_DT_classifier(data_sets, labels)
-	DT_predicted = predict_test_data(data_sets, DT_classifier)
-	DT_probas = DT_classifier.predict_proba(data_sets)
-
 	#NB
 	NB_classifier = build_NB_classifier(data_sets, labels)
 	NB_predicted = predict_test_data(data_sets, NB_classifier)
 	NB_probas = NB_classifier.predict_proba(data_sets)
 
-	print_error_rates = True
+	print_error_rates = False
 	if(print_error_rates):
 		print_error_rate("KNN", KNN_predicted, labels)
 		print_error_rate("LR", LR_predicted, labels)
@@ -53,7 +62,9 @@ def run_analysis(data_sets, labels):
 		print_error_rate("NB", NB_predicted, labels)
 
 	#ROC analysis
-	build_roc_curve(labels, knn_probas, LR_probas, DA_probas, DT_probas, NB_probas)
+	run_ROC_analysis = False
+	if(run_ROC_analysis):
+		build_roc_curve(labels, knn_probas, LR_probas, DA_probas, DT_probas, NB_probas)
 
 
 def feature_selection(data_sets):
@@ -140,3 +151,4 @@ def print_data(data_sets, labels):
 def print_error_rate(model, predicted, labels):
 	error_rate = error_measure(predicted, labels)
 	print model + " error rate: ", error_rate
+	

@@ -16,8 +16,8 @@ import ROC
 
 def csv_reader():
     file_name = "default of credit card clients.csv"
-    data_sets = pd.read_csv(file_name, index_col = 0, header = 0, skiprows = [1], usecols= range(24))
-    labels = pd.read_csv(file_name, index_col = 0, header = 0, skiprows = [1], usecols= [0,24])
+    data_sets = pd.read_csv(file_name, index_col = 0, skiprows = [1], header = 0,  usecols= range(24))
+    labels = pd.read_csv(file_name, index_col = 0, skiprows = [1], header = 0,  usecols= [0,24])
     return data_sets, labels
 
 def main():
@@ -25,7 +25,8 @@ def main():
 
     #ROC
     data_sets, labels = csv_reader()
-    ROC.run_analysis(data_sets, labels)
+    ROC.run_analysis(data_sets, labels) 
+
     return 
 
     #PCA and 10-fold validation
