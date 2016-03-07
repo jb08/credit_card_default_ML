@@ -36,7 +36,7 @@ def build_DA_classifier(data_sets, labels):
 #     return classifier
 
 
-# build Decision Tree Classifier
+# build SVM Classifier
 def build_SVM_classifier(data_sets, labels):
     classifier = svm.SVC()
     classifier.fit(data_sets, labels)
