@@ -4,32 +4,34 @@ import numpy as np
 import pandas as pd
 from pandas import DataFrame
 from classifier import *
+from cross_validation import *
 from sklearn.cross_validation import KFold
 
-def readfile():
+def read_file():
     file_name = "PreprocesedData.csv"
     openfile = open(file_name)
     file_data = csv.reader(openfile, delimiter=",")
-    X = []
-    Y = []
+    data = []
     for row in file_data:
-    	X.append(row[0 : 22])
-    	Y.append(row[23])
-    return X, Y
-
-
-def ten_fold_cross_validation(X):
-    kf = KFold(30000, n_folds=2)
-    X_train = da
-    # print len(data_sets), len(labels)
-    # for train_indexs, test_indexs in kf:
+    	tmp = []
+    	for t in row:
+    		tmp.append(float(t))
+        data.append(tmp)
+    return data
 
 def main():
-	X, Y = readfile()
-	print Y[29999]
-	print X[29999]
+    data = read_file()
+    folds = 10
 
-    # print ten_fold_cross_validation(data_sets, labels)
+    # kf = KFold(20, n_folds=folds)
+    # for train_indexs, test_indexs in kf:
+    # 	print train_indexs, test_indexs
+
+    KNN_cross_validation(data, folds)
+    LR_cross_validation(data, folds)
+    DA_cross_validation(data, folds)
+    NB_cross_validation(data, folds)
+    DT_cross_validation(data, folds)
 
     # KNN_classifer = build_KNN_classifier(data_sets, labels)
     # KNN_predicted = predict_test_data(data_sets, KNN_classifer)
