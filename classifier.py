@@ -4,6 +4,7 @@ from sklearn.naive_bayes import BernoulliNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
+from sklearn import svm
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 #from sklearn.neural_network import MLPClassifier
 
@@ -33,6 +34,13 @@ def build_DA_classifier(data_sets, labels):
 #     classifier = MLPClassifier()
 #     classifier.fit(data_sets, labels)
 #     return classifier
+
+
+# build Decision Tree Classifier
+def build_SVM_classifier(data_sets, labels):
+    classifier = svm.SVC()
+    classifier.fit(data_sets, labels)
+    return classifier
 
 
 # build Decision Tree Classifier
