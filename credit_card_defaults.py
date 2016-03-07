@@ -8,7 +8,6 @@ from classifier import *
 from sklearn.metrics import confusion_matrix, roc_curve, auc
 from cross_validation import *
 from sklearn.cross_validation import KFold
-
 import matplotlib.pyplot as plt
 import random
 import ROC
