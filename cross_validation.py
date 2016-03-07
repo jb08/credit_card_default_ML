@@ -5,38 +5,6 @@ from classifier import *
 from sklearn.cross_validation import KFold
 from sklearn.decomposition import PCA
 
-# def NB_cross_validation(data_sets, folds, pca_n,):
-#     kf = KFold(30000, n_folds=folds)
-#     final_error = 0.0
-#     index = 1
-#     for train_indices, test_indices in kf:
-#         X_train = []
-#         X_test = []
-#         for i in train_indices:
-#             X_train.append(data_sets[i])
-#         for i in test_indices:
-#             X_test.append(data_sets[i])
-#         train_x = []
-#         train_y = []
-#         test_x = []
-#         test_y = []
-#         for row in X_train:
-#             train_x.append(row[0:22])
-#             train_y.append(row[23])
-#         for row in X_test:
-#             test_x.append(row[0:22])
-#             test_y.append(row[23])
-#         train_x = PCA(n_components=pca_n).fit_transform(train_x)
-#         test_x = PCA(n_components=pca_n).fit_transform(test_x)
-#         NB_classifer = build_NB_classifier(train_x, train_y)
-#         NB_predicted = predict_test_data(test_x, NB_classifer)
-#         NB_error_rate = error_measure(NB_predicted, test_y)
-#         # print index, " fold NB_error_rate: ",  NB_error_rate
-#         final_error += NB_error_rate
-#         index = index + 1
-#     print "final_error: ", final_error / float(folds)
-
-
 
 def KNN_cross_validation(data_sets, folds):
     kf = KFold(30000, n_folds=folds)
