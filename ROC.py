@@ -13,58 +13,70 @@ from sklearn import tree
 def run_analysis(data_sets, labels):
 	print "ROC::run_analysis()"
 	#print_data(data_sets, labels)	
+	Train_data_sets = data_sets.head(15000)
+	Train_data_labels = labels.head(15000)
+	Test_data_sets = data_sets.tail(15000)
+	Test_data_labels = labels.tail(15000)
 
-	pre_process = False
-	labels = np.ravel(labels)
+	print Train_data_sets.shape, Test_data_labels.shape
+	print Test_data_sets.shape, Test_data_labels.shape
+	# return
+	pre_process = True
+	# labels = np.ravel(labels)
+	Train_data_labels = np.ravel(Train_data_labels)
+	Test_data_labels = np.ravel(Test_data_labels)
+
 	if(pre_process):
 		#pre-process data, incl. feature selection
 		feature_names = ['LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'PAY_0', 'PAY_2', 'PAY_3', 'PAY_4', 'PAY_5', 'PAY_6', 'BILL_AMT1', 'BILL_AMT2', 'BILL_AMT3', 'BILL_AMT4', 'BILL_AMT5', 'BILL_AMT6', 'PAY_AMT1', 'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6', 'RATIO_1', 'RATIO_2']
-		data_sets = feature_selection(data_sets)
+		Train_data_sets = feature_selection(Train_data_sets)
+		Test_data_sets = feature_selection(Test_data_sets)
 	else:
-		feature_names = feature_names = ['LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'PAY_0', 'PAY_2', 'PAY_3', 'PAY_4', 'PAY_5', 'PAY_6', 'BILL_AMT1', 'BILL_AMT2', 'BILL_AMT3', 'BILL_AMT4', 'BILL_AMT5', 'BILL_AMT6', 'PAY_AMT1', 'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6']
+		feature_names = ['LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'PAY_0', 'PAY_2', 'PAY_3', 'PAY_4', 'PAY_5', 'PAY_6', 'BILL_AMT1', 'BILL_AMT2', 'BILL_AMT3', 'BILL_AMT4', 'BILL_AMT5', 'BILL_AMT6', 'PAY_AMT1', 'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6']
 
 	#DT
-	DT_classifier = build_DT_classifier(data_sets, labels)
-	DT_predicted = predict_test_data(data_sets, DT_classifier)
-	DT_probas = DT_classifier.predict_proba(data_sets)
+	DT_classifier = build_DT_classifier(Train_data_sets, Train_data_labels)
+	DT_predicted = predict_test_data(Test_data_sets, DT_classifier)
+	DT_probas = DT_classifier.predict_proba(Test_data_sets)
 	
-	print_tree = False
+	print_tree = True
 	if(print_tree):
 		#feature_names = list(data_sets.columns.values)	
-		tree.export_graphviz(DT_classifier, class_names = ["No Default", "Yes Default"], feature_names = feature_names, max_depth = 3, out_file='tree.dot')
+		tree.export_graphviz(DT_classifier, class_names = ["No Default", "Yes Default"], feature_names = feature_names, max_depth = 2, out_file='tree.dot')
 
 	#KNN
-	KNN_classifier = build_KNN_classifier(data_sets, labels)
-	KNN_predicted = predict_test_data(data_sets, KNN_classifier)
-	knn_probas = KNN_classifier.predict_proba(data_sets)
+	KNN_classifier = build_KNN_classifier(Train_data_sets, Train_data_labels)
+	KNN_predicted = predict_test_data(Test_data_sets, KNN_classifier)
+	knn_probas = KNN_classifier.predict_proba(Test_data_sets)
 
 	#LR
-	LR_classifier = build_LR_classifier(data_sets, labels)
-	LR_predicted = predict_test_data(data_sets, LR_classifier)
-	LR_probas = LR_classifier.predict_proba(data_sets)
+	LR_classifier = build_LR_classifier(Train_data_sets, Train_data_labels)
+	LR_predicted = predict_test_data(Test_data_sets, LR_classifier)
+	LR_probas = LR_classifier.predict_proba(Test_data_sets)
 
 	#DA
-	DA_classifier = build_DA_classifier(data_sets, labels)
-	DA_predicted = predict_test_data(data_sets, DA_classifier)
-	DA_probas = DA_classifier.predict_proba(data_sets)
+	DA_classifier = build_DA_classifier(Train_data_sets, Train_data_labels)
+	DA_predicted = predict_test_data(Test_data_sets, DA_classifier)
+	DA_probas = DA_classifier.predict_proba(Test_data_sets)
 
 	#NB
-	NB_classifier = build_NB_classifier(data_sets, labels)
-	NB_predicted = predict_test_data(data_sets, NB_classifier)
-	NB_probas = NB_classifier.predict_proba(data_sets)
+	NB_classifier = build_NB_classifier(Train_data_sets, Train_data_labels)
+	NB_predicted = predict_test_data(Test_data_sets, NB_classifier)
+	NB_probas = NB_classifier.predict_proba(Test_data_sets)
 
-	print_error_rates = False
+
+	print_error_rates = True
 	if(print_error_rates):
-		print_error_rate("KNN", KNN_predicted, labels)
-		print_error_rate("LR", LR_predicted, labels)
-		print_error_rate("DA", DA_predicted, labels)
-		print_error_rate("DT", DT_predicted, labels)
-		print_error_rate("NB", NB_predicted, labels)
+		print_error_rate("KNN", KNN_predicted, Test_data_labels)
+		print_error_rate("LR", LR_predicted, Test_data_labels)
+		print_error_rate("DA", DA_predicted, Test_data_labels)
+		print_error_rate("DT", DT_predicted, Test_data_labels)
+		print_error_rate("NB", NB_predicted, Test_data_labels)
 
 	#ROC analysis
-	run_ROC_analysis = False
+	run_ROC_analysis = True
 	if(run_ROC_analysis):
-		build_roc_curve(labels, knn_probas, LR_probas, DA_probas, DT_probas, NB_probas)
+		build_roc_curve(Test_data_labels, knn_probas, LR_probas, DA_probas, DT_probas, NB_probas)
 
 
 def feature_selection(data_sets):

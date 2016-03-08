@@ -21,13 +21,8 @@ def csv_reader():
     return data_sets, labels
 
 def main():
-    print "main()"
-
-    #ROC
     data_sets, labels = csv_reader()
     ROC.run_analysis(data_sets, labels) 
-
-    return 
 
     #PCA and 10-fold validation
     data, labels2 = csv_reader()
@@ -56,7 +51,8 @@ def main():
     # DA_cross_validation(data, folds)
     # NB_cross_validation(data, folds)
     # DT_cross_validation(data, folds)
-    SVM_cross_validation(data, folds)
+    # LDA_cross_validation(data, folds)
+    # SVM_cross_validation(data, folds)
 
 
 if __name__ == "__main__":

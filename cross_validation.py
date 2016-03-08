@@ -5,7 +5,6 @@ from classifier import *
 from sklearn.cross_validation import KFold
 from sklearn.decomposition import PCA
 
-
 def KNN_cross_validation(data_sets, folds):
     kf = KFold(30000, n_folds=folds)
     final_error = 0.0
