@@ -7,7 +7,7 @@ from pandas import DataFrame
 from classifier import *
 from sklearn.metrics import confusion_matrix, roc_curve, auc
 import matplotlib.pyplot as plt
-from ROC import *
+from ROC import 
 from sklearn import tree
 
 def run_analysis(data_sets, labels):
