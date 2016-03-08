@@ -36,7 +36,7 @@ def run_analysis(data_sets, labels):
 	DT_predicted = predict_test_data(Test_data_sets, DT_classifier)
 	DT_probas = DT_classifier.predict_proba(Test_data_sets)
 	
-	print_tree = True
+	print_tree = False
 	if(print_tree):
 		#feature_names = list(data_sets.columns.values)	
 		tree.export_graphviz(DT_classifier, class_names = ["No Default", "Yes Default"], feature_names = feature_names, max_depth = 2, out_file='tree.dot')
@@ -106,37 +106,37 @@ def build_roc_curve(labels, knn_probas, LR_probas, DA_probas, DT_probas, NB_prob
 
 	knn_fpr, knn_tpr, knn_thresholds = roc_curve(labels, knn_probas[:, 1])
 	knn_roc_auc = auc(knn_fpr, knn_tpr)
-	knn_output=('KNN AUC = %0.2f'% knn_roc_auc)
+	knn_output=('KNN AUC = %0.4f'% knn_roc_auc)
 	print knn_output
 
 	LR_fpr, LR_tpr, LR_thresholds = roc_curve(labels, LR_probas[:, 1])
 	LR_roc_auc = auc(LR_fpr, LR_tpr)
-	LR_output=('LR AUC = %0.2f'% LR_roc_auc)
+	LR_output=('LR AUC = %0.4f'% LR_roc_auc)
 	print LR_output
 
 	DA_fpr, DA_tpr, DA_thresholds = roc_curve(labels, DA_probas[:, 1])
 	DA_roc_auc = auc(DA_fpr, DA_tpr)
-	DA_output=('DA AUC = %0.2f'% DA_roc_auc)
+	DA_output=('DA AUC = %0.4f'% DA_roc_auc)
 	print DA_output
 
 	DT_fpr, DT_tpr, DT_thresholds = roc_curve(labels, DT_probas[:, 1])
 	DT_roc_auc = auc(DT_fpr, DT_tpr)
-	DT_output=('DT AUC = %0.2f'% DT_roc_auc)
+	DT_output=('DT AUC = %0.4f'% DT_roc_auc)
 	print DT_output
 
 	NB_fpr, NB_tpr, NB_thresholds = roc_curve(labels, NB_probas[:, 1])
 	NB_roc_auc = auc(NB_fpr, NB_tpr)
-	NB_output=('NB AUC = %0.2f'% NB_roc_auc)
+	NB_output=('NB AUC = %0.4f'% NB_roc_auc)
 	print NB_output
 	
 	plot_on = True
 	if(plot_on):
 		#setup plot
-		plt.plot(DT_fpr, DT_tpr, label='Classification tree')
-		plt.plot(knn_fpr, knn_tpr, label='KNN')
 		plt.plot(NB_fpr, NB_tpr, label='Naive Bayesian')
 		plt.plot(DA_fpr, DA_tpr, label='Discriminant Analysis')
 		plt.plot(LR_fpr, LR_tpr, label='LogRegression')
+		plt.plot(DT_fpr, DT_tpr, label='Classification tree')
+		plt.plot(knn_fpr, knn_tpr, label='KNN')
 		
 		plt.axis([-.1, 1, 0, 1.1])
 		plt.xlabel('False Positive Rate')

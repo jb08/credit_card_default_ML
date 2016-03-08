@@ -23,7 +23,8 @@ def csv_reader():
 
 def main():
     data_sets, labels = csv_reader()
-    # ROC.run_analysis(data_sets, labels) 
+    ROC.run_analysis(data_sets, labels) 
+    return 
 
     #PCA and 10-fold validation
     data, labels2 = csv_reader()
