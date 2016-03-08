@@ -11,6 +11,7 @@ from sklearn.cross_validation import KFold
 import matplotlib.pyplot as plt
 import random
 import ROC
+from pca import *
 
 # author: Jason + Ben
 
@@ -22,7 +23,7 @@ def csv_reader():
 
 def main():
     data_sets, labels = csv_reader()
-    ROC.run_analysis(data_sets, labels) 
+    # ROC.run_analysis(data_sets, labels) 
 
     #PCA and 10-fold validation
     data, labels2 = csv_reader()
@@ -33,7 +34,6 @@ def main():
     #print "---"
     #print data_sets[0]
     #data = data_sets
-    
 
     # kf = KFold(20, n_folds=folds)
     # for train_indexs, test_indexs in kf:
@@ -43,17 +43,18 @@ def main():
 
     folds = 10
 
-    # for pca_n in range(1, 23):
-    #     print "pca n = ", pca_n, "-----------------------------------"
-    #     NB_cross_validation(data, folds, pca_n)
-
+    # KNN_cross_validation(data, folds)
     # LR_cross_validation(data, folds)
     # DA_cross_validation(data, folds)
     # NB_cross_validation(data, folds)
     # DT_cross_validation(data, folds)
-    # LDA_cross_validation(data, folds)
-    # SVM_cross_validation(data, folds)
 
+    # KNN_PCA_cross_validation(data, folds, 15)
+    KNN_PCA_cross_validation(data, folds, 15)
+    LR_PCA_cross_validation(data, folds, 15)
+    DA_PCA_cross_validation(data, folds, 15)
+    NB_PCA_cross_validation(data, folds, 15)
+    DT_PCA_cross_validation(data, folds, 15)
 
 if __name__ == "__main__":
     main()
