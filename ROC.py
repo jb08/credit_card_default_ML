@@ -12,26 +12,24 @@ from sklearn import tree
 def run_analysis(data_sets, labels):
 	print "ROC::run_analysis()"
 	#print_data(data_sets, labels)	
+	
+	pre_process = True
+	
+	if(pre_process):
+		#pre-process data, incl. feature selection
+		feature_names = ['LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'PAY_0', 'PAY_2', 'PAY_3', 'PAY_4', 'PAY_5', 'PAY_6', 'BILL_AMT1', 'BILL_AMT2', 'BILL_AMT3', 'BILL_AMT4', 'BILL_AMT5', 'BILL_AMT6', 'PAY_AMT1', 'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6', 'RATIO_1', 'RATIO_2']
+		data_sets = feature_selection(data_sets)
+	else:
+		feature_names = ['LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'PAY_0', 'PAY_2', 'PAY_3', 'PAY_4', 'PAY_5', 'PAY_6', 'BILL_AMT1', 'BILL_AMT2', 'BILL_AMT3', 'BILL_AMT4', 'BILL_AMT5', 'BILL_AMT6', 'PAY_AMT1', 'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6']
+
+	#finish preprocessing
 	Train_data_sets = data_sets.head(15000)
 	Train_data_labels = labels.head(15000)
 	Test_data_sets = data_sets.tail(15000)
 	Test_data_labels = labels.tail(15000)
 
-	print Train_data_sets.shape, Test_data_labels.shape
-	print Test_data_sets.shape, Test_data_labels.shape
-	# return
-	pre_process = True
-	# labels = np.ravel(labels)
 	Train_data_labels = np.ravel(Train_data_labels)
 	Test_data_labels = np.ravel(Test_data_labels)
-
-	if(pre_process):
-		#pre-process data, incl. feature selection
-		feature_names = ['LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'PAY_0', 'PAY_2', 'PAY_3', 'PAY_4', 'PAY_5', 'PAY_6', 'BILL_AMT1', 'BILL_AMT2', 'BILL_AMT3', 'BILL_AMT4', 'BILL_AMT5', 'BILL_AMT6', 'PAY_AMT1', 'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6', 'RATIO_1', 'RATIO_2']
-		Train_data_sets = feature_selection(Train_data_sets)
-		Test_data_sets = feature_selection(Test_data_sets)
-	else:
-		feature_names = ['LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'PAY_0', 'PAY_2', 'PAY_3', 'PAY_4', 'PAY_5', 'PAY_6', 'BILL_AMT1', 'BILL_AMT2', 'BILL_AMT3', 'BILL_AMT4', 'BILL_AMT5', 'BILL_AMT6', 'PAY_AMT1', 'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6']
 
 	#DT
 	DT_classifier = build_DT_classifier(Train_data_sets, Train_data_labels)
