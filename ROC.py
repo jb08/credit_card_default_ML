@@ -13,7 +13,7 @@ def run_analysis(data_sets, labels):
 	print "ROC::run_analysis()"
 	#print_data(data_sets, labels)	
 	
-	pre_process = True
+	pre_process = False
 	
 	if(pre_process):
 		#pre-process data, incl. feature selection
@@ -28,11 +28,18 @@ def run_analysis(data_sets, labels):
 	Test_data_sets = data_sets.tail(15000)
 	Test_data_labels = labels.tail(15000)
 
+	print_count = False
+	if (print_count):
+		s = Test_data_labels["Y"]
+		count_default = s.value_counts()
+		print count_default
+
 	Train_data_labels = np.ravel(Train_data_labels)
 	Test_data_labels = np.ravel(Test_data_labels)
 
 	#DT
 	DT_classifier = build_DT_classifier(Train_data_sets, Train_data_labels)
+	#print Train_data_sets.head(10)
 	DT_predicted = predict_test_data(Test_data_sets, DT_classifier)
 	DT_probas = DT_classifier.predict_proba(Test_data_sets)
 	
@@ -62,7 +69,7 @@ def run_analysis(data_sets, labels):
 	NB_probas = NB_classifier.predict_proba(Test_data_sets)
 
 
-	print_error_rates = True
+	print_error_rates = False
 	if(print_error_rates):
 		print_error_rate("KNN", KNN_predicted, Test_data_labels)
 		print_error_rate("LR", LR_predicted, Test_data_labels)
@@ -71,7 +78,7 @@ def run_analysis(data_sets, labels):
 		print_error_rate("NB", NB_predicted, Test_data_labels)
 
 	#ROC analysis
-	run_ROC_analysis = True
+	run_ROC_analysis = False
 	if(run_ROC_analysis):
 		build_roc_curve(Test_data_labels, knn_probas, LR_probas, DA_probas, DT_probas, NB_probas)
 
@@ -80,7 +87,9 @@ def feature_selection(data_sets):
 	print "ROC::feature_selection()"
 	data_sets["percent_max_Sept"] = (data_sets["X12"] / data_sets["X1"]) * 100
 	data_sets["percent_max_Aug"] = (data_sets["X13"] / data_sets["X1"]) * 100
+	
 	pd.set_option('display.max_columns', None)
+	#print data_sets.head(5)
 
 	return data_sets
 	#print data_sets.head(10)
