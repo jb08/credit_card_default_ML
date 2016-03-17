@@ -69,7 +69,7 @@ def run_analysis(data_sets, labels):
 	NB_probas = NB_classifier.predict_proba(Test_data_sets)
 
 
-	print_error_rates = False
+	print_error_rates = True
 	if(print_error_rates):
 		print_error_rate("KNN", KNN_predicted, Test_data_labels)
 		print_error_rate("LR", LR_predicted, Test_data_labels)

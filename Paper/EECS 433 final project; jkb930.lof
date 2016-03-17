@@ -1,4 +1,4 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Receiver Operating Characteristic}}{7}
+\contentsline {figure}{\numberline {1}{\ignorespaces Receiver Operating Characteristic}}{6}
 \contentsline {figure}{\numberline {2}{\ignorespaces Confusion Matrix - KNN}}{7}
-\contentsline {figure}{\numberline {3}{\ignorespaces Decision Tree - prior to feature selection}}{8}
-\contentsline {figure}{\numberline {4}{\ignorespaces Another sample figure}}{11}
+\contentsline {figure}{\numberline {3}{\ignorespaces Baseline Decision Tree}}{9}
+\contentsline {figure}{\numberline {4}{\ignorespaces Decision Tree after Feature Augmentation; Ratio\_1 and Ratio\_2 added}}{11}

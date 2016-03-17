@@ -31,10 +31,10 @@ def main():
     data["Y"] = labels2
     data = data.as_matrix()
 
-    #print data[0]
-    #print "---"
-    #print data_sets[0]
-    #data = data_sets
+    # print data[0]
+    # print "---"
+    # print data_sets[0]
+    # data = data_sets
 
     # kf = KFold(20, n_folds=folds)
     # for train_indexs, test_indexs in kf:
@@ -44,20 +44,20 @@ def main():
 
     folds = 10
 
-    KNN_cross_validation(data, folds)
-    LR_cross_validation(data, folds)
-    DA_cross_validation(data, folds)
+    # KNN_cross_validation(data, folds)
+    # LR_cross_validation(data, folds)
+    # DA_cross_validation(data, folds)
     NB_cross_validation(data, folds)
-    DT_cross_validation(data, folds)
+    # DT_cross_validation(data, folds)
 
-    # KNN_PCA_cross_validation(data, folds, 15)
-    # for n in range(1, 23):
-    #     print n, "----------"
-    #     KNN_PCA_cross_validation(data, folds, n)
-    #     LR_PCA_cross_validation(data, folds, n)
-    #     DA_PCA_cross_validation(data, folds, n)
-    #     NB_PCA_cross_validation(data, folds, n)
-    #     DT_PCA_cross_validation(data, folds, n)
+    KNN_PCA_cross_validation(data, folds, 15)
+    for n in range(1, 23):
+        print n, "----------"
+        #KNN_PCA_cross_validation(data, folds, n)
+        #LR_PCA_cross_validation(data, folds, n)
+        #DA_PCA_cross_validation(data, folds, n)
+        NB_PCA_cross_validation(data, folds, n)
+        #DT_PCA_cross_validation(data, folds, n)
 
 if __name__ == "__main__":
     main()

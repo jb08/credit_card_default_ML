@@ -1,3 +1,6 @@
 \contentsline {table}{\numberline {1}{\ignorespaces Explanatory Variables}}{5}
-\contentsline {table}{\numberline {2}{\ignorespaces A sample table}}{9}
-\contentsline {table}{\numberline {3}{\ignorespaces Another sample table}}{10}
+\contentsline {table}{\numberline {2}{\ignorespaces KNN k-values and Error Rates; Euclidean distance}}{10}
+\contentsline {table}{\numberline {3}{\ignorespaces Feature Selection Results - 23 versus 25 explanatory variables}}{11}
+\contentsline {table}{\numberline {4}{\ignorespaces 10-fold cross validation}}{12}
+\contentsline {table}{\numberline {5}{\ignorespaces PCA Results}}{12}
+\contentsline {table}{\numberline {6}{\ignorespaces Classifier Performance}}{13}

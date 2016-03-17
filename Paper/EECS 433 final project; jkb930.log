@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  15 MAR 2016 20:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  16 MAR 2016 22:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -272,12 +272,10 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 40.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 40.
-Missing character: There is no ï in font cmr9!
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <9> on input line 44.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 44.
-Missing character: There is no ï in font cmr9!
  [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
@@ -298,127 +296,123 @@ Missing character: There is no ï in font cmr9!
  [4]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 76.
- [5]
-<images/ROC.png, id=28, 395.5578pt x 296.7888pt>
+
+<images/ROC.png, id=24, 395.5578pt x 296.7888pt>
 File: images/ROC.png Graphic file (type png)
  <use images/ROC.png>
-Package pdftex.def Info: images/ROC.png used on input line 118.
+Package pdftex.def Info: images/ROC.png used on input line 111.
 (pdftex.def)             Requested size: 361.34999pt x 271.13792pt.
-
-<images/confusion_matrix.png, id=30, 443.256pt x 155.1396pt>
+ [5]
+[6 <./images/ROC.png>]
+<images/confusion_matrix.png, id=34, 443.256pt x 155.1396pt>
 File: images/confusion_matrix.png Graphic file (type png)
 
 <use images/confusion_matrix.png>
-Package pdftex.def Info: images/confusion_matrix.png used on input line 130.
+Package pdftex.def Info: images/confusion_matrix.png used on input line 127.
 (pdftex.def)             Requested size: 216.81pt x 75.88412pt.
+ [7 <./images/confusion_matrix.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 141--142
 
-<images/decision_tree_baseline.png, id=31, 590.6868pt x 374.3586pt>
-File: images/decision_tree_baseline.png Graphic file (type png)
-
-<use images/decision_tree_baseline.png>
-Package pdftex.def Info: images/decision_tree_baseline.png used on input line 1
-48.
-(pdftex.def)             Requested size: 361.34999pt x 229.02103pt.
- [6] [7 <./images/ROC.png> <./images/confusion_matrix.png>] [8 <./images/decisi
-on_tree_baseline.png>]
-
-LaTeX Warning: Reference `figure-sample' on page 9 undefined on input line 196.
+ []
 
 
-[9]
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 
-LaTeX Warning: Citation `dui' on page 10 undefined on input line 234.
+ []
 
-
-LaTeX Warning: Citation `sgg' on page 10 undefined on input line 234.
-
-
-LaTeX Warning: Citation `iokit' on page 10 undefined on input line 234.
-
-
-LaTeX Warning: Citation `palmos' on page 10 undefined on input line 234.
-
-
-LaTeX Warning: Citation `userModeLinux' on page 10 undefined on input line 234.
-
-
-
-LaTeX Warning: Citation `nielsen:dui-review' on page 10 undefined on input line
- 234.
-
-
-LaTeX Warning: Citation `heer-shneiderman' on page 10 undefined on input line 2
-34.
-
-
-LaTeX Warning: Citation `stackableThreads' on page 10 undefined on input line 2
-34.
-
-
-LaTeX Warning: Citation `xpkernel' on page 10 undefined on input line 234.
-
-
-LaTeX Warning: Citation `ux-3d' on page 10 undefined on input line 234.
-
-
-LaTeX Warning: Citation `iring' on page 10 undefined on input line 234.
-
-
-LaTeX Warning: Citation `contextFileSearch' on page 10 undefined on input line 
-234.
-
-
-LaTeX Warning: Citation `osHaskell' on page 10 undefined on input line 234.
-
-
-LaTeX Warning: Citation `hibernator' on page 10 undefined on input line 234.
-
-
-LaTeX Warning: Citation `dui' on page 10 undefined on input line 238.
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 249.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 147.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 249.
- [10]
-No file "EECS 433 final project; jkb930".bbl.
-[11] (./EECS 433 final project; jkb930.aux)
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 147.
+
+<images/decision_tree_baseline.png, id=41, 590.6868pt x 374.3586pt>
+File: images/decision_tree_baseline.png Graphic file (type png)
+
+<use images/decision_tree_baseline.png>
+Package pdftex.def Info: images/decision_tree_baseline.png used on input line 1
+62.
+(pdftex.def)             Requested size: 361.34999pt x 229.02103pt.
+
+
+LaTeX Warning: Citation `code' on page 8 undefined on input line 170.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
+
+ []
+
+[8] [9 <./images/decision_tree_baseline.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 223--224
+
+ []
+
+[10]
+<images/decision_tree_feature_selection.png, id=54, 582.0144pt x 365.2044pt>
+File: images/decision_tree_feature_selection.png Graphic file (type png)
+
+<use images/decision_tree_feature_selection.png>
+Package pdftex.def Info: images/decision_tree_feature_selection.png used on inp
+ut line 229.
+(pdftex.def)             Requested size: 361.34999pt x 226.74202pt.
+Missing character: There is no ï in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--253
+
+ []
+
+[11 <./images/decision_tree_feature_selection.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
+
+ []
+
+Missing character: There is no ï in font cmr10!
+
+Overfull \hbox (55.17393pt too wide) in paragraph at lines 282--291
+ [][] 
+ []
+
+Missing character: There is no ï in font cmr10!
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
+
+ []
+
+[13] [14] (./EECS 433 final project; jkb930.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2433 strings out of 493089
- 35494 string characters out of 6134842
- 108965 words of memory out of 5000000
- 5881 multiletter control sequences out of 15000+600000
- 10442 words of font info for 37 fonts, out of 8000000 for 9000
+ 2428 strings out of 493089
+ 35657 string characters out of 6134842
+ 109983 words of memory out of 5000000
+ 5877 multiletter control sequences out of 15000+600000
+ 9840 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,9n,23p,1050b,302s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,9n,23p,1052b,240s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loca
-l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
-ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
+al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local
+/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl9.pfb></usr/local/texlive
 /2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/201
-5/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on "EECS 433 final project; jkb930.pdf" (11 pages, 492365 bytes)
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on "EECS 433 final project; jkb930.pdf" (14 pages, 681080 bytes)
 .
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 119 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
